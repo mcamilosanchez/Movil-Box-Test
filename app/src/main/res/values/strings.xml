@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Test Movil Box</string>
+    <!-- Product Properties -->
+    <string name="product_image">Product Image</string>
+    <string name="product_name">Nombre producto</string>
+    <string name="product_brand">Marca producto</string>
+    <string name="product_price">Precio producto</string>
+    <!-- Dialog Alert -->
+    <string name="alert_dialog_loading">Cargando</string>
+    <string name="alert_dialog_ok">Aceptar</string>
+</resources>
