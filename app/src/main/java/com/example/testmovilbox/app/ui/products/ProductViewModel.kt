@@ -23,6 +23,7 @@ class ProductViewModel @Inject constructor(
     val status: MutableLiveData<Resource<ProductsModel>> =
         MutableLiveData(Resource.loading(data = null))
 
+
     fun getListProducts(): LiveData<Resource<ProductsModel>> {
         viewModelScope.launch {
             try {
