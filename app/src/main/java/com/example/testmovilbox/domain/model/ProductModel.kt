@@ -20,7 +20,7 @@ data class ProductModel(
     @ColumnInfo(name = "brand") val brand: String,
     @ColumnInfo(name = "category") val category: String,
     @ColumnInfo(name = "thumbnail") val thumbnail: String,
-  //  @ColumnInfo(name = "images") val images: ArrayList<String> = arrayListOf()
+    @ColumnInfo(name = "images") val images: ArrayList<String> = arrayListOf()
 ) {
     fun getFormattedPrice() = price.formattedPrice()
 }

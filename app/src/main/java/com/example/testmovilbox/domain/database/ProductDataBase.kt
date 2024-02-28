@@ -7,7 +7,7 @@ import com.example.testmovilbox.domain.database.dao.ProductDao
 import com.example.testmovilbox.domain.model.ProductModel
 
 @Database(entities = [ProductModel::class], version = 1, exportSchema = false)
-//@TypeConverters(Converters::class)
+@TypeConverters(Converters::class)
 abstract class ProductDataBase : RoomDatabase() {
     abstract fun getProductDao() : ProductDao
 }

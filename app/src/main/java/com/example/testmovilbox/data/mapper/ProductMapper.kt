@@ -16,7 +16,7 @@ fun ProductEntity.toModel(): ProductModel {
             brand,
             category,
             thumbnail,
-            //images
+            images
         )
     }
 }

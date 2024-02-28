@@ -10,14 +10,14 @@ class Converters {
     @TypeConverter
     fun setTypeDevice(value: ArrayList<String>?): String? {
         val gson = Gson()
-        val type = object : TypeToken<ProductModel?>() {}.type
+        val type = object : TypeToken<ArrayList<String>?>() {}.type
         return gson.toJson(value, type)
     }
 
     @TypeConverter
     fun getTypeDevice(value: String?): ArrayList<String>? {
         val gson = Gson()
-        val type = object : TypeToken<ProductModel?>() {}.type
+        val type = object : TypeToken<ArrayList<String>?>() {}.type
         return gson.fromJson(value, type)
     }
 }

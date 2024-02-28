@@ -17,12 +17,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProductViewModel @Inject constructor(
-    val productRepository: ProductRepository
+    private val productRepository: ProductRepository
 ) : ViewModel() {
 
-    val status: MutableLiveData<Resource<ProductsModel>> =
+    private val status: MutableLiveData<Resource<ProductsModel>> =
         MutableLiveData(Resource.loading(data = null))
-
 
     fun getListProducts(): LiveData<Resource<ProductsModel>> {
         viewModelScope.launch {
@@ -30,19 +29,16 @@ class ProductViewModel @Inject constructor(
                 val response = ApiService.Api.retrofitService.getProducts()
                 val productsResponse = response.toModel()
 
-                val array = productsResponse.products?.get(0)
-
-
-                productRepository.saveProduct(array!!)
-
+                //Save products in database local
+                productsResponse.products?.map {
+                    productRepository.saveProduct(it)
+                }
 
                 status.value = Resource(
                     Status.SUCCESS,
                     productsResponse,
                     "List of products was loaded successfully"
                 )
-
-
             } catch (e: Exception) {
                 e.printStackTrace()
                 status.value = Resource(Status.ERROR, null, "Error ViewModelScope")
